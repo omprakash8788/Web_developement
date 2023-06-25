@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wrap</title>
+    <style>
+        .cont{
+            display: flex;
+            flex-wrap:wrap;
+            border: 1px solid black;
+        }
+        .cont>div{
+            width: 200px;
+            height: 100px;
+            background-color: chocolate;
+        }
+        .cont>div:nth-child(1){
+            background-color: #cd0e0e;
+        }
+        .cont>div:nth-child(2){
+            background-color: #2016d1;
+        } .cont>div:nth-child(3){
+            background-color: #e80fb5;
+        } .cont>div:nth-child(4){
+            background-color: #d915ef;
+        }
+        .cont>div:nth-child(5){
+            background-color: #370273;
+        } .cont>div:nth-child(6){
+            background-color: #a3d712;
+        } 
+        /* .cont>div:nth-child(7){
+            background-color: #069dc7;
+        } */
+        
+    </style>
+</head>
+<body>
+    <div class="cont">
+        <div>1</div>
+        <div>2</div>
+        <div>3</div>
+        <div>4</div>
+        <div>5</div>
+        <div>6</div>
+        <!-- <div>7</div> -->
+
+    </div>
+</body>
+</html>
