@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>querySelectorAll</title>
+</head>
+<body>
+    <h1>Team of India</h1>
+    <p id="ms">I am dhoni</p>
+    <p>I am kohli</p>
+    <p>I am rohit</p>
+    <p>I am om</p>
+</body>
+</html>
+<script>
+    let array=(document.querySelectorAll('p'))
+    // document.querySelectorAll('p').style
+    console.log(array);
+    for(let i=0; i<array.length; i++){
+        array[i].style.color="blue"
+    }
+
+</script>
+<!--  querySelectorAll will return Nodelist(array) -->
