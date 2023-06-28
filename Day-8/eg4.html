@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1 id="res">Show diff here</h1>
+    <button onclick="innerTextCh()">Inner Text</button>
+    <button onclick="innerHTMLCh()">Inner HTML</button>
+</body>
+</html>
+<script>
+ function innerTextCh(){
+document.getElementById("res").innerText="<b>masa</b>"
+ }
+ function innerHTMLCh(){
+document.getElementById("res").innerHTML="<b>masa</b>"
+    
+}
+</script>
