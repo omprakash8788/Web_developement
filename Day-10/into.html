@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+    .head{
+        color: red;
+        font-size: 60px;
+        font-style: italic;
+        background-color: cornflowerblue;
+    }    
+    </style>
+</head>
+<body>
+    <h1>Manipal</h1>
+    <button>Change text to red </button>
+</body>
+</html>
+<script>
+    document.querySelector("button").addEventListener("click",myFun)
+
+    function myFun(){
+        // document.querySelector('h1').style.color="red";
+        // document.querySelector('h1').style.fontSize="60px";
+
+        document.querySelector("h1").setAttribute("class","head")
+    }
+</script>
+<!-- 
+
+    setAttribute("attribute type", "attribute name")
+    setAttribute("id","")
+ -->

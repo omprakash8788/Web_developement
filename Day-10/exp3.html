@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        img{
+            width: 200px;
+        }
+    </style>
+</head>
+<body>
+    <button>Create img</button>
+</body>
+</html>
+<script>
+    document.querySelector("button").addEventListener("click",imG)
+
+    function imG(){
+        let omImg=document.createElement("img")
+        omImg.setAttribute("src","https://www.unigreet.com/wp-content/uploads/2023/03/Cute-Cat-Whatsapp-Dp-HD.jpg")
+        document.querySelector("body").append(omImg)
+    }
+</script>

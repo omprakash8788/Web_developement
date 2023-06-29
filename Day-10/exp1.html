@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Forms</title>
+</head>
+<body>
+    <form>
+
+        <input type="text">
+        <input type="submit">
+    </form>
+    <h1>Show output here</h1>
+    <a href="https://www.google.com/">Google</a>
+</body>
+</html>
+<script>
+ document.querySelector('form').addEventListener("click",myFun)
+
+ function myFun(e){
+    e.preventDefault()
+    let name = document.querySelector('input').value;
+
+    document.querySelector("h1").innerText=name;
+ }
+
+</script>

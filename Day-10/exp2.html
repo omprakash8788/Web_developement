@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CreateElement using js</title>
+  </head>
+  <body>
+    <button>Create 100 h1 tag</button>
+  </body>
+</html>
+<script>
+  // how to create any tag using js
+  // 1. create tag name or element
+  //2. Writing innerText to it
+  // 3. Add/append to body
+
+  document.querySelector("button").addEventListener("click",createH1)
+  function createH1(){
+      for(let i=0; i<100; i++){
+      
+          // creating element
+          let head = document.createElement("h1");
+          // innerText
+          head.innerText = "Manipal";
+          // append
+          document.querySelector("body").append(head);
+      }
+
+  }
+
+
+</script>
