@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=
+    , initial-scale=1.0">
+    <title>Local Storage</title>
+</head>
+<body>
+    
+</body>
+</html>
+<script>
+    // ## Local Store methods....
+    // setItem- store in LS
+    // getitem- Get item from Ls
+    // remove - remove items from LS
+    // clear - clear everything from LS.
+
+    // data type- string , number , array, obj, array of obj
+
+
+    // String - how to store string in LS..
+    //localStorage.setItem("key_name","value")
+    
+    localStorage.setItem("Student","omprkash")
+    localStorage.setItem("Student-2","Prakash")
+
+    // getitem- get back data from LS
+   let name= localStorage.getItem("Student")
+   console.log(name);
+
+   // store phone number
+   localStorage.setItem("mobile no.",9898989898)
+  // limitation - it will accept only string and number and boolean
+
+
+  // store array but some technique.
+  // how to store array or obj inside LS.
+  //Ans- used json.Stringify
+  let arr=[1,2,3,4,5]
+  localStorage.setItem("array",JSON.stringify(arr))
+  
+
+  let out=JSON.parse(localStorage.getItem("array"))
+  console.log(out);
+
+  //obj
+  let obj={"omprakash":"bihar wala"}
+  localStorage.setItem("object",JSON.stringify(obj))
+
+  let out1=JSON.parse(localStorage.getItem("object"))
+  console.log(out1);
+
+</script>
