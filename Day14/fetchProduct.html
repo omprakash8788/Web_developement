@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Fetch Products</title>
+    <style>
+        #container{
+            display: grid;
+            grid-template-columns: repeat(4,1fr);
+            grid-template-rows: auto;
+            gap: 20px;
+        }
+        #container>div>img{
+            border: 1px solid black;
+            width: 100%;
+        }
+        #container>div{
+            text-align: center;
+            box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+        }
+        input{
+            padding: 10px 20px;
+            width: 300px;
+            text-align: center;
+            align-items: center;
+        }
+    </style>
+  </head>
+  <body>
+    <button>Cart</button>
+    <input oninput="search()" type="text" placeholder="Search Products here">
+      <div id="container">
+       <!-- apped here -->
+   </div>
+  </body>
+</html>
+<script>
+  let bag = [];
+  let url = "https://fakestoreapi.com/products";
+  fetch(url)
+    .then((res) => res.json())
+    .then((data) =>{
+     bag=data;
+     console.log(data);
+     displayCard(data)
+    })
+
+    // ------- search functionality --------//
+    function search(){
+        // console.log("someone doing something");
+        let q=document.querySelector("input").value;
+        // console.log(q);
+        let newData=bag.filter(function(elem){
+            return elem.title.toLowerCase().includes(q.toLowerCase())
+        })
+        // console.log(newData);
+        displayCard(newData)
+    } 
+    
+    function displayCard(data){
+
+        document.querySelector("#container").innerHTML="";
+        //   <div>
+        //  <img src="" alt="">
+        //   <h2>Title</h2>
+        //  <p>Price</p>
+        //  <p>description</p>
+        //  <p>Rating</p>
+        //  </div>
+
+        // create dynamic product card
+
+      data.forEach(function(elem){
+        
+        let div=document.createElement("div")
+
+        let image=document.createElement("img")
+        image.setAttribute("src",elem.image)
+
+        let title=document.createElement("h2")
+        title.innerText=elem.title
+
+        let description=document.createElement("p")
+        description.innerText=elem.description
+
+
+        let price=document.createElement("p")
+        price.innerText=elem.price
+
+
+        let rating=document.createElement("p")
+        rating.innerText=elem.rating.rate
+       
+        // for cart 
+        let btn=document.createElement("button")
+        btn.innerText="Add to Cart";
+     
+
+        div.append(image,title,price,description,rating, btn)
+
+        document.querySelector("#container").append(div)
+
+      })
+        
+
+    }
+</script>

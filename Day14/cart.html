@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+             #container{
+            display: grid;
+            grid-template-columns: repeat(4,1fr);
+            grid-template-rows: auto;
+            gap: 20px;
+        }
+        #container>div>img{
+            border: 1px solid black;
+            width: 100%;
+        }
+        #container>div{
+            text-align: center;
+            box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+        }
+        input{
+            padding: 10px 20px;
+            width: 300px;
+            text-align: center;
+            align-items: center;
+        }
+    </style>
+  </head>
+  <body>
+    <h1>Total Price </h1>
+    <div id="container"></div>
+  </body>
+</html>
+<script>
+  let cartItems = JSON.parse(localStorage.getItem("cartProducts"));
+  displayCard(cartItems)
+
+
+  // for total price
+  let totalCost=cartItems.reduce((acc,el)=>acc+el.price,0)
+  console.log(totalCost);
+  document.querySelector("h1").innerText=totalCost
+
+  function displayCard(data) {
+    document.querySelector("#container").innerHTML = "";
+     // create dynamic product card
+    data.forEach(function (elem) {
+      let div = document.createElement("div");
+
+      let image = document.createElement("img");
+      image.setAttribute("src", elem.image);
+
+      let title = document.createElement("h2");
+      title.innerText = elem.title;
+
+      let description = document.createElement("p");
+      description.innerText = elem.description;
+
+      let price = document.createElement("p");
+      price.innerText = elem.price;
+
+      let rating = document.createElement("p");
+      rating.innerText = elem.rating.rate;
+
+      div.append(image, title, price, description, rating);
+
+      document.querySelector("#container").append(div);
+    });
+  }
+</script>
+
+
+<!-- 
+  reduce
+  let arr=[1,2,3,4,5]
+  forEach will return undefined, forEach(function(elem, index, arr))
+  map will return array, map(function(elem,index,arr))
+  filter will return array, filter(function(elem,index,arr))
+  reduce will return single value, reduce()
+
+  // syntax- arr.reduce
+  let accumelator=0;
+  for(let i=0; i<arr.length; i++){
+   accumelator=accumelator+arr[i];
+  }
+  console.log(accumelator)
+
+
+// sytax of reduce.
+  // arr.reduce(function(acc, el, index, arr))
+
+  let arr=[1,2,3,4,5]
+  let out=arr.reduce(function (acc, el, index,arr){
+    return acc + el;
+  })
+
+  //No initial value -> initial value = 1st array ele=1
+  // 1st iteration
+  // acc=1, acc+el=1+2=3, acc=3
+  // 2nd iteration
+  // acc=3, acc+el=3+3=6, acc=6
+  // 3rd iteration
+  // acc=6, acc+el=6+4=10, acc=10
+  //4th iteration
+  // acc=10, acc+el=10+5=15, acc=15
+ -->
