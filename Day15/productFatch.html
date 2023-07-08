@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Fetch Products</title>
+    <style>
+      #container {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        grid-template-rows: auto;
+        gap: 20px;
+        margin: auto;
+        width: 100%;
+        padding-top: 50px;
+        overflow: hidden;
+     
+      }
+      #container > div > img {
+        border: 1px solid black;
+        width: 100%;
+      }
+      #container > div {
+        text-align: center;
+        box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+        /* margin-top: 10px; */
+        /* padding-top: 20px; */
+      }
+      input {
+        padding: 10px 20px;
+        width: 300px;
+        text-align: center;
+        align-items: center;
+      }
+      button > a {
+        text-decoration: none;
+      }
+      button {
+        width: 100px;
+        height: 39px;
+    
+      }
+   
+    
+      select {
+        width: 100px;
+        height: 39px;
+      }
+      .navbar{
+        display: flex;
+        height: 60px;
+        width: 100%;
+        margin-top: -8px;
+        background-color:  #232F3E;
+        /* padding: 20px; */
+        color: white;
+        border: 1px solid red;
+        justify-content: space-evenly;
+        /* text-align: center; */
+        /* align-content: center; */
+        align-items: center;
+        position: fixed;
+    
+      }
+      .footer {
+        display: flex;
+        height: 300px;
+        width: 100%;
+        justify-content: space-between;
+        border: 1px solid red;
+        background-color:  #232F3E;
+        padding: 10px;
+
+      }
+      .footer-child >h3{
+        color: white;
+        font-weight: 800;
+      }
+      .footer-child >p{
+        color: white;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="navbar">
+      <div>Sazra</div>
+      <div>Service</div>
+      <div>Product</div>
+      <div>Contact</div>
+      <div>Address</div>
+      <button><a href="cart.html">Cart</a></button>
+      <!-- <a href="cart.html">Cart</a> -->
+      <input oninput="search()" type="text" placeholder="Search Products here" />
+  
+      <!-- this is for sorting base on price -->
+      <select onchange="handleSort()">
+        <option value="LTH">LTH</option>
+        <option value="HTL">HTL</option>
+      </select>
+    </div>
+
+
+    <div id="container">
+      <!-- apped here -->
+    </div>
+    <div class="footer">
+      <div class="footer-child">
+        <h3>Get to Know Us</h3>
+        <p>About Us</p>
+        <p>Careers</p>
+        <p>Press Releases</p>
+        <p>Our Rights</p>
+      </div>
+      <div class="footer-child">
+        <h3>Connect with Us</h3>
+        <p>Facebook</p>
+        <p>Twitter</p>
+        <p>Instagram</p>
+      </div>
+      <div class="footer-child">
+        <h3>Make Money with Us</h3>
+        <p>Sell on Sazra</p>
+        <p>Sell under Sazra Accelerator</p>
+        <p>Protect and Build Your Brand</p>
+        <p>Become an Affiliate</p>
+        <p>Advertise Your Products</p>
+      </div>
+      <div class="footer-child">
+        <h3>Let Us Help You</h3>
+        <p>Your Account</p>
+        <p>Returns Centre</p>
+        <p>100% Purchase Protection</p>
+        <p>Help</p>
+      </div>
+    </div>
+  </body>
+</html>
+<script>
+  let bag = [];
+  let cartItems = JSON.parse(localStorage.getItem("cartProducts")) || [];
+  let url = "https://fakestoreapi.com/products";
+  fetch(url)
+    .then((res) => res.json())
+    .then((data) => {
+      bag = data;
+      console.log(data);
+      displayCard(data);
+    });
+
+  // this is sorting function base on price
+  function handleSort() {
+    //    console.log("someone changr product price");
+    let selected = document.querySelector("select").value;
+    if (selected == "HTL") {
+      bag.sort((a, b) => b.price - a.price);
+    }
+    if (selected == "LTH") {
+      bag.sort((a, b) => a.price - b.price);
+    }
+    // console.log(bag);
+    displayCard(bag);
+  }
+
+  // ------- search functionality --------//
+  function search() {
+    // console.log("someone doing something");
+    let q = document.querySelector("input").value;
+    // console.log(q);
+    let newData = bag.filter(function (elem) {
+      return elem.title.toLowerCase().includes(q.toLowerCase());
+    });
+    // console.log(newData);
+    displayCard(newData);
+  }
+
+  function displayCard(data) {
+    document.querySelector("#container").innerHTML = "";
+
+    // create dynamic product card
+
+    data.forEach(function (elem) {
+      let div = document.createElement("div");
+
+      let image = document.createElement("img");
+      image.setAttribute("src", elem.image);
+
+      let title = document.createElement("h2");
+      title.innerText = elem.title;
+
+      let description = document.createElement("p");
+      description.innerText = elem.description;
+
+      let price = document.createElement("p");
+      price.innerText = elem.price;
+
+      let rating = document.createElement("p");
+      rating.innerText = elem.rating.rate;
+
+      // for cart
+      let btn = document.createElement("button");
+      btn.innerText = "Add to Cart";
+      btn.addEventListener("click", function () {
+        cartItems.push(elem);
+        localStorage.setItem("cartProducts", JSON.stringify(cartItems));
+      });
+
+      div.append(image, title, price, description, rating, btn);
+
+      document.querySelector("#container").append(div);
+    });
+  }
+</script>
