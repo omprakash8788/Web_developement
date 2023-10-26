@@ -1,6 +1,6 @@
 ## dom-II
 
-    //  todat agenda 
+    //  today agenda 
     // style through DOM
     // className , comibnators, tagNames
     // event object

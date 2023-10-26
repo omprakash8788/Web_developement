@@ -1,26 +1,65 @@
-document.querySelector("form").addEventListener("submit", myTodo);
+// document.querySelector("form").addEventListener("submit", myTodo);
 
-function myTodo(event) {
-  event.preventDefault();
+// function myTodo(event) {
+//   event.preventDefault();
 
-  let taskName = document.querySelector("#task").value;
-  let taskPriority = document.querySelector("#priority").value;
-//   console.log(taskName, taskPriority);
-displayTable(taskName,taskPriority)
+//   let taskName = document.querySelector("#task").value;
+//   let taskPriority = document.querySelector("#priority").value;
+// //   console.log(taskName, taskPriority);
+// displayTable(taskName,taskPriority)
+// }
+
+// function displayTable(taskName, taskPriority){
+
+//  let row = document.createElement("tr")
+//  let td1=document.createElement("td")
+//  td1.innerText=taskName
+//  let td2=document.createElement("td")
+//  td2.innerText=taskPriority
+//  let td3=document.createElement("td")
+//  td3.innerText="Add as fav"
+
+//  row.append(td1,td2,td3)
+
+
+//   document.querySelector("tbody").append(row)
+// }
+
+
+
+//  practice 
+
+document.querySelector('form').addEventListener('submit',myTodo)
+
+function myTodo(e){
+ e.preventDefault();
+ 
+let taskName=document.querySelector("#task").value;
+let taskPriority=document.querySelector("#priority").value;
+
+// console.log(taskName, taskPriority);
+displayTable(taskName, taskPriority)
 }
 
 function displayTable(taskName, taskPriority){
+  let row = document.createElement('tr')
+  let td1=document.createElement('td')
+  td1.innerText=taskName
 
- let row = document.createElement("tr")
- let td1=document.createElement("td")
- td1.innerText=taskName
- let td2=document.createElement("td")
- td2.innerText=taskPriority
- let td3=document.createElement("td")
+  let td2=document.createElement('td')
+  td2.innerText=taskPriority
+
+   let td3=document.createElement("td")
  td3.innerText="Add as fav"
 
- row.append(td1,td2,td3)
+
+ row.append(td1, td2, td3)
+
+ document.querySelector('tbody').append(row)
 
 
-  document.querySelector("tbody").append(row)
+
 }
+
+
+

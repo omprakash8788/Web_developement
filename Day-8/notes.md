@@ -1,4 +1,4 @@
-## DOM (Document abject model)
+## DOM (Document object model)
 
 Events- onClick  , alert ,
 
