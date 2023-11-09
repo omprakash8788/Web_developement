@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+    </script>
+</body>
+</html>
+<!-- 
+ * Node Relationships- Any node has relationship to other nodes in the DOM tree, and it is same as describe in the traditional family tree
+ * Selecting Elements - There are various method of dom to select any element
+ 1. getElementById()method return as element object that represent an HTML element
+  Example - 
+
+    <div>
+        <p id="msg">JavaScript</p>
+    </div> 
+    <script>
+     let message=document.getElementById("msg");
+     console.log(message);
+    </script>
+
+    Output:   <p id="msg">JavaScript</p>
+
+    ---------------------------------------------
+
+ 2. getElementByName()methods
+ Example: 
+   <div>
+      <input type="radio" name="langauge" value="javascript">
+      <input type="radio" name="langauge" value="python">
+
+    </div> 
+    <script>
+    let btn=document.getElementsByName("langauge")
+    console.log(btn);
+    </script>
+
+    Output:
+    
+    NodeList(2) [input, input]
+    0:input
+    1: input
+    length: 2
+    [[Prototype]]: NodeList
+
+ 3. getElementsByTagName() method accepts a tag name and return a live HTML collection of elements
+   Example:
+     <div>
+     <h1>Fisrt heading</h1>
+     <h1>Second heading</h1>
+     <h1>Third heading</h1>
+    </div> 
+
+    <script>
+    let hd=document.getElementsByTagName("h1")
+    console.log(hd);
+    </script>
+
+    Output: HTMLCollection(3) [h1, h1, h1]
+
+ 4. getElementByClassName() method - The getElementByClassName() method return array-like of objectof the child elements with a specified class name.
+ Example:
+    <div>
+     <h1 class="msg">Fisrt heading</h1>
+     <div id="container">
+         <h1 class="msg">Second heading</h1>
+         <h1 class="msg">Third heading</h1>
+     </div>
+
+    </div> 
+    <script>
+        let cont= document.getElementById("container")
+        // console.log(cont);
+    let hd=cont.getElementsByClassName("msg")
+    console.log(hd);
+    </script>
+
+    Output: HTMLCollection(2) [h1.msg, h1.msg]
+
+  5. querySelector() and QuerySelectorAll() - The querySelector() method allows you to select the first element that matches one or more css selector.
+  Example: 
+  <body>
+     <h1 class="msg">Fisrt heading</h1>
+     <div id="container">
+         <h1 class="msg">Second heading</h1>
+         <h1 class="msg">Third heading</h1>
+     </div>
+
+
+    <script>
+      let msga=document.querySelectorAll(".msg")
+      console.log(msga);
+    </script>
+  </body>  
+  Output: NodeList(3) [h1.msg, h1.msg, h1.msg]
+
+
+  6. Traversing elements:To get the parent node of a specified node in the DOM tree, we can use the parentNode property.
+   
+  Exampple: 
+  <body>
+     
+ <div id="title">
+    <p class="text">Welcome to om</p>
+
+ </div>
+
+    <script>
+     let txt=document.querySelector(".text");
+     console.log(txt.parentNode);
+    </script>
+ </body>
+
+ Output:
+ <div id="title">
+    <p class="text">Welcome to om</p>
+ </div>
+
+  Getting child elements of a Node in Javascript 
+
+  <body>
+     
+ <div id="title">
+    <p>Welcome to om</p>
+    <p>Welcome to om1</p>
+    <p>Welcome to om2</p>
+    <p>Welcome to om3</p>
+    <p>Welcome to om4</p>
+
+
+ </div>
+
+    <script>
+    let parent=document.querySelector('#title')
+
+    console.log(parent.firstElementChild) // to get first child
+    console.log(parent.childNodes) // to get all child 
+
+    console.log(parent.lastElementChild) // to get last child
+
+    </script>
+ </body>
+  Output: NodeList(11) [text, p, text, p, text, p, text, p, text, p, text]
+
+
+
+  ## ------------- How to manuplate html elements ----------- ##
+  1. createElement- To create an html element , we use the createElement() method
+   The document.createElement() accepts an html tag name and return a new node with the element type.
+
+  Example:
+  <body>
+     
+    <script>
+  let div= document.createElement("div");
+  div.innerHTML="<p>Welocome maa radha rani</p>";
+
+ //   document.body.appendChild(div);
+  div.id='title';  
+ //  div.className="om"  add classname
+  console.log(div);
+    </script>
+  </body>
+
+  Output : <div id="title">
+    <p>Welocome maa radha rani</p>
+    </div>
+
+    2. appendChild() method - Use appendChild() method to add a node to the end of the list of child nodes of a specified parent node.
+       The appendChild() can be used to move an existing child node to the new position within the document .
+
+
+
+ -->

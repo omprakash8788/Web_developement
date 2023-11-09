@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+   
+    <script>
+        
+    </script>
+</body>
+</html>
+<!--     
+    2. appendChild() method - Use appendChild() method to add a node to the end of the list of child nodes of a specified parent node.
+       The appendChild() can be used to move an existing child node to the new position within the document .
+
+
+    Example:
+    <body>
+    <ul id="menu">
+        <li>Home</li>
+        <li>About</li>
+        <li>Blog</li>
+        <li>Project</li>
+    </ul>
+    <script>
+        let menu=document.getElementById("menu")
+
+
+        let list =document.createElement("li")
+        list.innerHTML="Contact"
+
+        menu.appendChild(list)
+    </script>
+   </body>
+
+   Output:
+    Home
+    About
+    Blog
+    Project
+    Contact
+
+   3. textContent- To get the text content of a node and its descendants , you use the textContent property.
+
+    Example:   
+           <body>
+    <ul id="menu">
+        <li>Home</li>
+        <li>About</li>
+        <li>Blog</li>
+        <li>Project</li>
+    </ul>
+    <script>
+        let menu=document.getElementById("menu")
+        // console.log(menu.textContent);
+        // console.log(menu.innerText);
+    </script>
+    </body>
+
+
+    4. after() Method - we can use after() method to insert one or more node after the element.
+
+     
+    5. removeChild() method - 
+       syntext : parentNode.removeChild(childNode)
+
+
+    Example: 
+                  <ul id="menu">
+        <li>Home</li>
+        <li>About</li>
+        <li>Blog</li>
+        <li>Project</li>
+    </ul>
+    <script>
+        let menu=document.getElementById("menu")
+        // parentNode.removeChild(childNode)
+        menu.removeChild(menu.lastElementChild)
+        
+    </script>
+     </body>
+
+     Output : Home
+              About
+              Blog
+
+    6. insertBefore() Method- Use insertBefore() method to insert a new node before an existing node as a child of a parent node.
+    Syntax: parentNode.insertBefore(newNode, existingNode)   
+    
+     Example:
+        <body>
+    <ul id="menu">
+        <li>Home</li>
+        <li>About</li>
+        <li>Blog</li>
+        <li>Project</li>
+    </ul>
+    <script>
+        let menu=document.getElementById("menu")
+        // parentNode.insertBefore(newNode, existingNode)
+        menu.insertBefore(newNode, menu.firstElementChild)
+        
+    </script>
+    </body>
+
+    7. Attribute methods
+ -->

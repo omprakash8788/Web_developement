@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Question1</title>
+    <style>
+        div{
+            height: 200px;
+            line-height: 200px;
+            color: white;
+            text-align: center;
+            padding-left: 20px;
+            padding-right: 20px;
+        }
+
+    </style>
+</head>
+<body>
+    <div onclick="changeColor(this)" style="background-color: red;">Tap me to change my color</div>
+</body>
+</html>
+<script>
+    function changeColor(e){
+     const currentColor=e.style.backgroundColor;
+     if(currentColor=="red"){
+        e.style.backgroundColor="green"
+     }
+     else{
+        e.style.backgroundColor="red"
+     }
+    }
+</script>
