@@ -9,6 +9,6 @@ Types of selectors
 SICTU
 S- Inline style - 1000
 I- ID selector - 100
-C - Class selector - 10
+C -Class selector - 10
 T- Tag Selector - 1
 U- Universal selector - 0

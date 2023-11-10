@@ -1,0 +1,23 @@
+#container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: auto;
+    gap: 20px;
+  }
+  #container>div{
+    width: 100%;
+  }
+  #container > div > img {
+    border: 1px solid black;
+    width: 100%;
+  }
+  #container > div {
+    text-align: center;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  }
+  input {
+    padding: 10px 20px;
+    width: 300px;
+    text-align: center;
+    align-items: center;
+  }
