@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Super Method</title>
+</head>
+<body>
+    
+</body>
+</html>
+<script>
+     class Person{
+    constructor(name){
+        this.name=name;
+    }
+    greet(){
+        console.log("Hello " + this.name);
+
+    }
+ }
+ class Student extends Person{
+    constructor(name){
+        super(name);
+    }
+
+ }
+
+ const student1= new Student('Peter');
+
+ student1.greet()
+</script>
