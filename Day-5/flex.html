@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .count{
+            display: flex; 
+            border: 1px solid red;
+            /* flex-direction: column; */
+            flex-wrap: wrap;
+        }
+        .count>div{
+            width: 100px;
+            height: 100px;
+            color: black;
+            font-size: 30px;
+
+        }
+        .count>div:nth-child(1){
+            background-color: brown;
+        }
+        .count>div:nth-child(2){
+            background-color: blue;
+        }
+        .count>div:nth-child(3){
+            background-color: yellow;
+        }
+        .count>div:nth-child(4){
+            background-color: lawngreen;
+        }
+    </style>
+</head>
+<body>
+    <div class="count">
+        <div>1</div>
+        <div>2</div>
+        <div>3</div>
+        <div>4</div>
+
+    </div>
+</body>
+</html>
+<!-- flex - by default in a vertical dirction -->
